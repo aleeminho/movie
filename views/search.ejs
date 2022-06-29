@@ -1,0 +1,33 @@
+<%- include('partials/header.ejs') %>
+  <div class="container">
+    <h1 id="search" class="text-center mt-5">Search Movies</h1>
+    <div class="inputWrapper">
+      <form action="/searchmovies" method="POST">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Movie's title" aria-describedby="button-addon2"
+            name="searchInput">
+          <input type="submit" value="Search" class="btn btn-outline-secondary" id="button-addon2" />
+      </form>
+    </div>
+    <div class="row mt-3">
+      <% data.forEach(e=> { %>
+        <div class="col-md-4">
+          <div class="card mb-3">
+            <img src="<%= `https://image.tmdb.org/t/p/w500${e.poster_path}` %>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title" style="font-size: 1rem;">
+                <%= e.title %>
+              </h5>
+              <p class="card-text" style="font-size: 0.8rem;">
+                <% if (e.overview) { %>
+                  <%= e.overview.substring(0, 100)+'...' %>
+                    <% } %>
+              </p>
+              <a href="/moviedetails/<%= e.id %>" class="btn btn-primary">See Details</a>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+    </div>
+  </div>
+  <%- include('partials/footer.ejs') %>

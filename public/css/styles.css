@@ -1,0 +1,19 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.inputWrapper {
+  margin: 3rem 10%;
+}
+
+.card img {
+  height: 400px;
+}
+
+.card {
+  height: 600px;
+}
+
+.detailPage .row {
+  margin-top: 3rem;
+}

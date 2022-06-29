@@ -1,0 +1,39 @@
+<%- include('partials/header.ejs') %>
+  <div class="container">
+    <section class="detailPage">
+      <div class="row mt-5">
+        <div class="col-md-3 d-flex justify-content-center p-0 mb-3">
+          <img src="<%= `https://image.tmdb.org/t/p/w500${data.poster_path}` %>" style="height: 25rem;"
+            alt="movie_poster">
+        </div>
+        <div class="col-md-8 p-0">
+          <h1 class="fw-bold mb-4">
+            <%= data.title ?? data.name %>
+          </h1>
+          <p class="mb-0">
+            <%= data.release_date.split('-')[0] %>
+          </p>
+          <% const genre=data.genres.map(e=> e.name).join(' / ') %>
+            <p>
+              <%= genre %>
+            </p>
+            <p>
+              <%= data.overview %>
+            </p>
+            <p class="fw-bold">Movie info:</p>
+            <p>Tagline: <%= data.tagline %>
+            </p>
+            <p>Release Date: <%= data.release_date %>
+            </p>
+            <p>Budget: <%= data.budget %> Million
+            </p>
+            <p>Revenue: <%= data.revenue %> Million
+            </p>
+            <p>Vote: <%= data.vote_average %>
+                <p>Vote Count: <%= data.vote_count %>
+                </p>
+        </div>
+      </div>
+    </section>
+  </div>
+  <%- include('partials/footer.ejs') %>
